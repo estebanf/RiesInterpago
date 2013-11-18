@@ -3,7 +3,7 @@ require 'savon'
 
 module RiesInterpagos
   class Client
-    attr_reader :request_apikey, :request_idclient, :request_idreference,:request_token, :request_totalamount, :request_date
+    attr_reader :service_client,:request_apikey, :request_idclient, :request_idreference,:request_token, :request_totalamount, :request_date
     def initialize(config,message)
       @request_idclient = config.id_cliente
       @request_apikey = config.api_key
