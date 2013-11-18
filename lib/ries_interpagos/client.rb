@@ -20,8 +20,8 @@ module RiesInterpagos
         request_idclient: @request_idclient,
         request_apikey: @request_apikey,
         request_idreference: @request_idreference,
-        request_totalamount: @request_totalamount,
         request_token: @request_token,
+        request_totalamount: @request_totalamount,
         request_date: @request_date
       }
 
