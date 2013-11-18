@@ -10,7 +10,7 @@ module RiesInterpagos
       @request_idreference = message.reference
       @request_totalamount = sprintf("%.2f",message.total_amount.to_f.round(2))
       @request_date = message.request_date
-      @request_token = Digest::SHA1.base64digest("#{@request_idclient}-#{config.pin}-#{@request_idreference}-#{@request_totalamount}")
+      @request_token = Digest::SHA1.hexdigest("#{@request_idclient}-#{config.pin}-#{@request_idreference}-#{@request_totalamount}")
     
       @service_client = Savon.client do
         wsdl config.wsdl
