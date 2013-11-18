@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # RiesInterpagos
 
 TODO: Write a gem description
