@@ -3,7 +3,7 @@ require 'savon'
 
 module RiesInterpagos
   class Client
-    attr_reader :service_client,:request_apikey, :request_idclient, :request_idreference,:request_token, :request_totalamount, :request_date
+    attr_reader :ws_response,:data_message,:service_client,:request_apikey, :request_idclient, :request_idreference,:request_token, :request_totalamount, :request_date
     def initialize(config,message)
       @request_idclient = config.id_cliente
       @request_apikey = config.api_key
@@ -16,10 +16,7 @@ module RiesInterpagos
         wsdl config.wsdl
         convert_request_keys_to :upcase
       end
-    end
-
-    def query
-      message = {
+      @data_message = {
         request_idclient: @request_idclient,
         request_apikey: @request_apikey,
         request_idreference: @request_idreference,
@@ -27,8 +24,12 @@ module RiesInterpagos
         request_token: @request_token,
         request_date: @request_date
       }
+
+    end
+
+    def query
       begin
-        ws_response = @service_client.call(:transaction_status_execute, message: message)
+        @ws_response = @service_client.call(:transaction_status_execute, message: @data_message)
         response = {status: :success}
         source = ws_response.body[:transaction_status_execute_response][:return]
         data = {
