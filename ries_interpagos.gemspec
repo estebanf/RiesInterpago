@@ -8,8 +8,8 @@ Gem::Specification.new do |spec|
   spec.version       = RiesInterpagos::VERSION
   spec.authors       = ["Esteban Felipe"]
   spec.email         = ["esteban@allihay.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
+  spec.description   = "Queries interpago"
+  spec.summary       = "Interpago Webservice reapper"
   spec.homepage      = ""
   spec.license       = "MIT"
 
